@@ -77,7 +77,7 @@ Zero-duplication architecture, least-privilege IAM, automatic GitHub Secrets syn
 ---
 
 **Open to new opportunities** in Sweden & EU & worldwide
-**Medior Cloud • Platform • DevOps • Serverless Engineer** roles  
+**Cloud • Platform • DevOps • Serverless Engineer** roles  
 
 📩 **[ervin.wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build scalable, secure and fully reproducible cloud systems together!
 
