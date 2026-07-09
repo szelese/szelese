@@ -44,10 +44,10 @@ A Kubernetes-native delivery project that extends my earlier serverless portfoli
 Key features:
 
 - Isolated Python business core with FastAPI HTTP adapter
-- Secure Docker image (non-root, read-only filesystem, dropped capabilities)
+- Non-root Docker runtime with Kubernetes security hardening (read-only filesystem, dropped capabilities)
 - Local Kubernetes with `kind`, Kustomize and reusable Helm chart
 - Ingress, Horizontal Pod Autoscaler, NetworkPolicy
-- Prometheus metrics + structured JSON logging
+- Prometheus-compatible `/metrics` endpoint + structured JSON logging
 - Full GitHub Actions CI (pytest, Trivy scan, smoke tests, Helm validation)
 
 This project is intentionally presented as a **local Kubernetes runtime portability baseline**, not as a full production platform yet.
