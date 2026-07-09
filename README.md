@@ -120,7 +120,7 @@ Docker • FastAPI • kind • Kustomize • Helm • Ingress • HPA • Netwo
 GitHub Actions + OIDC • Trivy scanning • Smoke testing • Helm validation
 
 **Security & Observability**  
-Least-privilege • Non-root containers • Prometheus metrics • Structured logging
+Least-privilege • Non-root containers • Prometheus-compatible metrics • Structured logging
 
 **Architecture**  
 Hexagonal design • Cloud-agnostic core
