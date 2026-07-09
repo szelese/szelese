@@ -1,83 +1,143 @@
 # Ervin Wallin
 
-**Cloud & Platform Engineer**  
+**Cloud & DevOps Engineer**  
 [LinkedIn](https://linkedin.com/in/ervin-wallin) | [GitHub](https://github.com/szelese)
 
 ---
 
-[![AWS Certified Developer](https://img.shields.io/badge/AWS%20Certified%20Developer-Associate-FF9900?style=flat-square&logo=amazonaws)](https://www.credly.com/badges/993fe86f-e57e-4982-b356-b37b72961562)   [![HashiCorp Terraform Associate](https://img.shields.io/badge/HashiCorp%20Terraform-Associate-7B42BC?style=flat-square&logo=terraform)](https://www.credly.com/badges/da685d53-d623-402f-9994-b4fce26321f2)
+[![CKAD](https://img.shields.io/badge/Kubernetes-CKAD%20Certified-326CE5?style=flat-square&logo=kubernetes)](https://www.credly.com/badges/bfca75d3-7d7c-41df-8eda-753720505555/linked_in_profile)
+[![AWS Certified Developer](https://img.shields.io/badge/AWS%20Certified%20Developer-Associate-FF9900?style=flat-square&logo=amazonaws)](https://www.credly.com/badges/993fe86f-e57e-4982-b356-b37b72961562)
+[![Terraform Associate](https://img.shields.io/badge/HashiCorp%20Terraform-Associate-7B42BC?style=flat-square&logo=terraform)](https://www.credly.com/badges/da685d53-d623-402f-9994-b4fce26321f2)
 
-[![v2.1 Full Terraform IaC](https://img.shields.io/badge/v2.1-Full%20Terraform%20IaC-7B42BC?style=flat-square&logo=terraform)](https://github.com/szelese/v2.1-agnostic-lambda-core-terraform)  [![Latency 44ms](https://img.shields.io/badge/Latency-44ms-blue?style=flat-square)](https://github.com/szelese/v2-agnostic-lambda-core)  [![NIÜ Award](https://img.shields.io/badge/NI%C3%9C%20Awarded-HSUP-FF9900?style=flat-square&logo=award)](https://github.com/szelese/ci-cd-gha-aws)
+[![v3 Kubernetes](https://img.shields.io/badge/v3-Kubernetes%20Native-326CE5?style=flat-square&logo=kubernetes)](https://github.com/szelese/v3-k8s-core)
+[![v2 44ms Latency](https://img.shields.io/badge/Latency-44ms-blue?style=flat-square)](https://github.com/szelese/v2-agnostic-lambda-core)
+[![v1 NIÜ Award](https://img.shields.io/badge/NIÜ-Awarded-FF9900?style=flat-square)](https://github.com/szelese/ci-cd-gha-aws)
 
 ---
 
-## Cloud Architecture Evolution  
-**From traditional PaaS to modern Serverless IaC**  
-(2025–2026 | BSc Computer Science)
+## Cloud Architecture Evolution
 
-| Version | Architecture                          | Management                  | Key Achievements                                              | Status              |
-|---------|---------------------------------------|-----------------------------|---------------------------------------------------------------|---------------------|
-| **v1**  | Django Monolith + Elastic Beanstalk   | GitHub Actions + OIDC       | NIÜ selected project, DORA Elite metrics, <60s deploy, $21k ROI savings | Baseline (Archived) |
-| **v2**  | Hexagonal Agnostic + Lambda Container | CI/CD Pipeline              | **63% faster** (120ms → **44ms** median), OWASP ZAP 0-alert, fully cloud-agnostic core | Active Core         |
-| **v2.1**| Same Core + **Full Terraform IaC**    | Zero Manual Steps           | Least-privilege IAM, GitHub App + OIDC, auto Secrets sync, smart smoke test, CloudWatch + SNS | **Advanced Portfolio Project** |
+**From PaaS → Serverless → Kubernetes-native delivery**  
+2025–2026 | BSc Computer Science
 
-**The full story:** Started with classic PaaS in v1, evolved to fully cloud-agnostic serverless in v2, then fully automated with Terraform in v2.1 — consistently delivering performance, security and reproducibility.
+| Version | Architecture | Technologies | Key Achievements |
+|---------|--------------|--------------|------------------|
+| **v1** | Django Monolith | Elastic Beanstalk, GitHub Actions | NIÜ/HSUP selected project, automated CI/CD |
+| **v2** | Cloud-agnostic Serverless Core | Lambda, Docker, Hexagonal | 63% faster (120ms → 44ms), OWASP ZAP 0 alerts |
+| **v2.1** | Full IaC Layer | Terraform, OIDC | Zero manual steps, least-privilege IAM |
+| **v3** | **Kubernetes-native Runtime** | FastAPI, Docker, kind, Helm, Kustomize | Local K8s baseline, Ingress, HPA, NetworkPolicy, runtime hardening, CI |
+
+The portfolio shows a deliberate progression: starting from traditional PaaS, advancing to high-performance cloud-agnostic serverless, adding full infrastructure automation, and now extending into container orchestration with Kubernetes.
+
+**Next milestone (v3.1):** Terraform-managed AWS EKS, ECR, GitHub OIDC and Helm-based deployment path.
 
 ---
 
 ## Highlighted Projects
 
-**CI/CD with Elastic Beanstalk (NIÜ Award)**  
-[github.com/szelese/ci-cd-gha-aws](https://github.com/szelese/ci-cd-gha-aws)  
-OIDC-secured pipeline, quality gates, auto-deploy + post-deploy hooks.
+### v3 – Kubernetes-Native Core
 
-**Agnostic Serverless Lambda Core**  
-[github.com/szelese/v2-agnostic-lambda-core](https://github.com/szelese/v2-agnostic-lambda-core)  
-Hexagonal design, Dockerized Lambda, 44ms latency (Locust validated), hardened security headers.
+[github.com/szelese/v3-k8s-core](https://github.com/szelese/v3-k8s-core)
 
-**Full Terraform IaC Layer**  
-[github.com/szelese/v2.1-agnostic-lambda-core-terraform](https://github.com/szelese/v2.1-agnostic-lambda-core-terraform)  
-Zero-duplication architecture, least-privilege IAM, automatic GitHub Secrets sync, zero manual deployment.
+A Kubernetes-native delivery project that extends my earlier serverless portfolio into container orchestration.
+
+Key features:
+
+- Isolated Python business core with FastAPI HTTP adapter
+- Secure Docker image (non-root, read-only filesystem, dropped capabilities)
+- Local Kubernetes with `kind`, Kustomize and reusable Helm chart
+- Ingress, Horizontal Pod Autoscaler, NetworkPolicy
+- Prometheus metrics + structured JSON logging
+- Full GitHub Actions CI (pytest, Trivy scan, smoke tests, Helm validation)
+
+This project is intentionally presented as a **local Kubernetes runtime portability baseline**, not as a full production platform yet.
+
+---
+
+### v2.1 – Full Terraform IaC Layer
+
+[github.com/szelese/v2.1-agnostic-lambda-core-terraform](https://github.com/szelese/v2.1-agnostic-lambda-core-terraform)
+
+A Terraform-based infrastructure automation layer around the v2 serverless core.
+
+Key features:
+
+- Fully automated AWS infrastructure provisioning
+- Terraform-managed IAM, ECR, Lambda, CloudWatch alarms and SNS notifications
+- GitHub Actions deployment workflow
+- GitHub OIDC authentication
+- Least-privilege IAM design
+- Automatic GitHub Secrets management
+- Smart smoke tests after deployment
+- Zero manual infrastructure steps
+
+---
+
+### v2 – Agnostic Serverless Lambda Core
+
+[github.com/szelese/v2-agnostic-lambda-core](https://github.com/szelese/v2-agnostic-lambda-core)
+
+A cloud-agnostic Python application core adapted to AWS Lambda container runtime.
+
+Key features:
+
+- Hexagonal / clean architecture style separation
+- Environment-agnostic business logic
+- Dockerized Lambda runtime
+- Performance improvement from approximately 120 ms to 44 ms average response time
+- Around 63% faster response time compared to the original v1 system
+- OWASP ZAP security audit with zero alerts
+- Automated tests and validation pipeline
+
+---
+
+### v1 – CI/CD with AWS Elastic Beanstalk
+
+[github.com/szelese/ci-cd-gha-aws](https://github.com/szelese/ci-cd-gha-aws)
+
+The original monolithic Django project and deployment baseline.
+
+Key features:
+
+- GitHub Actions CI/CD pipeline
+- AWS Elastic Beanstalk deployment
+- OIDC-based AWS authentication
+- Automated deployment workflow
+- Post-deploy hooks for database migration and static file collection
+- Selected for further development by the Hungarian National Innovation Agency / HSUP
 
 ---
 
 ## Core Competencies
 
 **Cloud & Infrastructure**  
-• AWS (Lambda, API Gateway, ECR, IAM, CloudWatch, Elastic Beanstalk)  
-• Terraform IaC (least-privilege, modules, remote state ready)
+AWS (Lambda, ECR, IAM, CloudWatch, Elastic Beanstalk) • Terraform IaC
 
-**DevOps & Automation**  
-• GitHub Actions + OIDC, CI/CD pipelines, Docker  
-• Smart smoke testing & automated rollback readiness
+**Kubernetes & Containers**  
+Docker • FastAPI • kind • Kustomize • Helm • Ingress • HPA • NetworkPolicy • Security contexts
 
-**Security & Quality**  
-• OWASP ZAP 0-alert, hardened security headers, GitHub App auth  
-• Locust load testing, pytest, flake8, bandit
+**CI/CD & Automation**  
+GitHub Actions + OIDC • Trivy scanning • Smoke testing • Helm validation
+
+**Security & Observability**  
+Least-privilege • Non-root containers • Prometheus metrics • Structured logging
 
 **Architecture**  
-• Hexagonal / Cloud-Agnostic design, Serverless, Event-driven systems
-
-**Certifications**  
-• AWS Certified Developer – Associate (2026)  
-• HashiCorp Terraform Associate (004) (2026)  
-• AWS Certified Cloud Practitioner (2025)  
-• CKAD – planned Q2 2026
+Hexagonal design • Cloud-agnostic core
 
 ---
 
-## Next Level (v3 Roadmap)
-- Multi-environment infrastructure with Terraform modules  
-- Remote state backend (S3 + DynamoDB)  
-- Blue-Green / Canary deployments  
-- Automated DORA metrics  
-- Hardened Security Module
-- Production-ready environment
+## Certifications
+
+- Certified Kubernetes Application Developer — CKAD
+- AWS Certified Developer – Associate
+- HashiCorp Certified: Terraform Associate
+- AWS Certified Cloud Practitioner
 
 ---
 
-**Open to new opportunities** in Sweden & EU & worldwide
-**Cloud • Platform • DevOps • Serverless Engineer** roles  
+**Open to new opportunities** in Hungary & EU & worldwide
+**Cloud • DevOps • Platform Engineering • Infrastructure as Code** roles
 
 📩 **[ervin.wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build scalable, secure and fully reproducible cloud systems together!
 
