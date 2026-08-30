@@ -33,7 +33,8 @@ https://github.com/grafana/helm-chart-toolbox/pull/146
 ## Cloud Architecture Evolution
 
 **From PaaS → Serverless → Infrastructure as Code → Kubernetes-native delivery**
-2025–2026 | BSc Computer Science
+
+2025–2026 | Cloud portfolio evolution
 
 | Version | Architecture | Technologies | Key Achievements |
 |---------|--------------|--------------|------------------|
