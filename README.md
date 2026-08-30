@@ -9,25 +9,40 @@
 [![AWS Certified Developer](https://img.shields.io/badge/AWS%20Certified%20Developer-Associate-FF9900?style=flat-square&logo=amazonaws)](https://www.credly.com/badges/993fe86f-e57e-4982-b356-b37b72961562)
 [![Terraform Associate](https://img.shields.io/badge/HashiCorp%20Terraform-Associate-7B42BC?style=flat-square&logo=terraform)](https://www.credly.com/badges/da685d53-d623-402f-9994-b4fce26321f2)
 
-[![v3 Kubernetes](https://img.shields.io/badge/v3-Kubernetes%20Native-326CE5?style=flat-square&logo=kubernetes)](https://github.com/szelese/v3-k8s-core)
-[![v2 44ms Latency](https://img.shields.io/badge/Latency-44ms-blue?style=flat-square)](https://github.com/szelese/v2-agnostic-lambda-core)
-[![v1 NIÜ Award](https://img.shields.io/badge/NIÜ-Awarded-FF9900?style=flat-square)](https://github.com/szelese/ci-cd-gha-aws)
+---
+
+## Open-Source Contributions
+
+### OpenTelemetry Helm Charts
+**PR #2365** (merged) – Backward-compatible migration for renamed OTLP exporters (`otlp` → `otlp_grpc`, `otlphttp` → `otlp_http`)
+- Rewrote exporter definitions and pipeline references while preserving named instances
+- Added deprecation warnings, Helm unit and integration test coverage, and upgrade documentation
+- Resolved merge conflicts and fixed a failing collector test on a local kind cluster
+
+https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2365
+
+### Grafana Helm Chart Toolbox
+**PR #146** (merged) – Added values.yaml validation before running documentation and schema generators
+- Added regression tests for both `--file` and `--chart` modes
+- Incorporated maintainer feedback by bumping both generators to 0.3.0 and updating their changelogs
+
+https://github.com/grafana/helm-chart-toolbox/pull/146
 
 ---
 
 ## Cloud Architecture Evolution
 
-**From PaaS → Serverless → Kubernetes-native delivery**  
+**From PaaS → Serverless → Infrastructure as Code → Kubernetes-native delivery**
 2025–2026 | BSc Computer Science
 
 | Version | Architecture | Technologies | Key Achievements |
 |---------|--------------|--------------|------------------|
-| **v1** | Django Monolith | Elastic Beanstalk, GitHub Actions | NIÜ/HSUP selected project, automated CI/CD |
-| **v2** | Cloud-agnostic Serverless Core | Lambda, Docker, Hexagonal | 63% faster (120ms → 44ms), OWASP ZAP 0 alerts |
-| **v2.1** | Full IaC Layer | Terraform, OIDC | Zero manual steps, least-privilege IAM |
-| **v3** | **Kubernetes-native Runtime** | FastAPI, Docker, kind, Helm, Kustomize | Local K8s baseline, Ingress, HPA, NetworkPolicy, runtime hardening, CI |
+| **v1** | Django Monolith | Elastic Beanstalk, GitHub Actions | Selected for further development by NIÜ/HSUP; automated CI/CD |
+| **v2** | Cloud-agnostic Serverless Core | Lambda, Docker, Hexagonal | Documented median latency reduction (~120 ms → 44 ms); ZAP scan with 0 alerts in the recorded scenario |
+| **v2.1** | Terraform IaC Layer | Terraform, GitHub OIDC | Repeatable AWS provisioning and automated application deployment |
+| **v3** | **Kubernetes-native Runtime** | FastAPI, Docker, kind, Helm, Kustomize | kind-based Kubernetes baseline reproduced on AWS EC2, Ingress, HPA, NetworkPolicy, runtime hardening, CI |
 
-The portfolio shows a deliberate progression: starting from traditional PaaS, advancing to high-performance cloud-agnostic serverless, adding full infrastructure automation, and now extending into container orchestration with Kubernetes.
+The portfolio shows a deliberate progression: starting from traditional PaaS, advancing to cloud-agnostic serverless, adding Terraform-managed infrastructure, and extending into container orchestration with Kubernetes.
 
 **Next milestone (v3.1):** Terraform-managed AWS EKS, ECR, GitHub OIDC and Helm-based deployment path.
 
@@ -50,7 +65,7 @@ Key features:
 - Prometheus-compatible `/metrics` endpoint + structured JSON logging
 - Full GitHub Actions CI (pytest, Trivy scan, smoke tests, Helm validation)
 
-This project is intentionally presented as a **local Kubernetes runtime portability baseline**, not as a full production platform yet.
+This project is intentionally presented as a **local Kubernetes runtime portability baseline, reproduced locally and on a fresh AWS EC2 host using kind**, not as a production Kubernetes platform.
 
 ---
 
@@ -62,14 +77,14 @@ A Terraform-based infrastructure automation layer around the v2 serverless core.
 
 Key features:
 
-- Fully automated AWS infrastructure provisioning
+- Repeatable AWS infrastructure provisioning with Terraform
 - Terraform-managed IAM, ECR, Lambda, CloudWatch alarms and SNS notifications
 - GitHub Actions deployment workflow
 - GitHub OIDC authentication
 - Least-privilege IAM design
 - Automatic GitHub Secrets management
 - Smart smoke tests after deployment
-- Zero manual infrastructure steps
+- Initial infrastructure provisioning through `terraform apply`; subsequent application deployments are automated
 
 ---
 
@@ -84,10 +99,9 @@ Key features:
 - Hexagonal / clean architecture style separation
 - Environment-agnostic business logic
 - Dockerized Lambda runtime
-- Performance improvement from approximately 120 ms to 44 ms average response time
-- Around 63% faster response time compared to the original v1 system
-- OWASP ZAP security audit with zero alerts
-- Automated tests and validation pipeline
+- Documented median latency reduction from approximately 120 ms to 44 ms under the recorded Locust test scenario
+- OWASP ZAP scan with zero alerts in the recorded test scenario
+- GitHub Actions quality gate and version-aware post-deployment smoke test
 
 ---
 
@@ -136,13 +150,12 @@ Hexagonal design • Cloud-agnostic core
 
 ---
 
-**Open to new opportunities** in Hungary & EU & worldwide
-**Cloud • DevOps • Platform Engineering • Infrastructure as Code** roles
+**Open to Cloud, DevOps, Platform Engineering and Infrastructure as Code roles** in Hungary, the EU and remote international teams.
 
-📩 **[ervin.wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build scalable, secure and fully reproducible cloud systems together!
+📩 **[ervin.wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build reliable, secure and reproducible cloud systems together!
 
 ---
-*20 years in high-stakes logistics → reliability-first approach to cloud infrastructure.* 
----
+*20 years in high-stakes logistics → reliability-first approach to cloud infrastructure.*
+
 ![Profile views](https://komarev.com/ghpvc/?username=szelese&color=0e75b6&style=flat-square&label=Profile+views)  
 © 2026 Ervin Wallin
