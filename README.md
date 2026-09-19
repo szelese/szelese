@@ -21,6 +21,13 @@
 
 https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2365
 
+**PR #2403** (merged) – Decoupled `namespaceSelector` and `objectSelector` settings for Pods, Instrumentation, and OpenTelemetryCollector admission webhooks, with per-webhook selector values taking precedence over common selectors.
+
+- Added backward-compatible common and per-webhook selector handling
+- Validated with `helm lint`, `helm template` and chart testing
+
+https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2403
+
 ### Grafana Helm Chart Toolbox
 **PR #146** (merged) – Added values.yaml validation before running documentation and schema generators
 - Added regression tests for both `--file` and `--chart` modes
