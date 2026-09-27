@@ -1,6 +1,6 @@
 # Ervin Wallin
 
-**Cloud & DevOps Engineer**  
+**Platform Engineer | OpenTelemetry Community Member (CNCF)**  
 [LinkedIn](https://linkedin.com/in/ervin-wallin) | [GitHub](https://github.com/szelese)
 
 ---
@@ -14,26 +14,22 @@
 ## Open-Source Contributions
 
 ### OpenTelemetry Helm Charts
-**PR #2365** (merged) – Backward-compatible migration for renamed OTLP exporters (`otlp` → `otlp_grpc`, `otlphttp` → `otlp_http`)
+**[PR #2365](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2365)** (merged) – Backward-compatible migration for renamed OTLP exporters (`otlp` → `otlp_grpc`, `otlphttp` → `otlp_http`)
 - Rewrote exporter definitions and pipeline references while preserving named instances
 - Added deprecation warnings, Helm unit and integration test coverage, and upgrade documentation
 - Resolved merge conflicts and fixed a failing collector test on a local kind cluster
 
-https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2365
-
-**PR #2403** (merged) – Decoupled `namespaceSelector` and `objectSelector` settings for Pods, Instrumentation, and OpenTelemetryCollector admission webhooks, with per-webhook selector values taking precedence over common selectors.
-
+**[PR #2403](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2403)** (merged) – Decoupled `namespaceSelector` and `objectSelector` settings for Pods, Instrumentation, and OpenTelemetryCollector admission webhooks, with per-webhook selector values taking precedence over common selectors.
 - Added backward-compatible common and per-webhook selector handling
 - Validated with `helm lint`, `helm template` and chart testing
 
-https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2403
+**[PR #2418](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2418)** (merged) – Removed redundant schema requirements in `opentelemetry-operator` chart
+- Cleaned up duplicated and overly restrictive constraints in `values.schema.json` to allow flexible custom configurations
 
 ### Grafana Helm Chart Toolbox
-**PR #146** (merged) – Added values.yaml validation before running documentation and schema generators
+**[PR #146](https://github.com/grafana/helm-chart-toolbox/pull/146)** (merged) – Added values.yaml validation before running documentation and schema generators
 - Added regression tests for both `--file` and `--chart` modes
 - Incorporated maintainer feedback by bumping both generators to 0.3.0 and updating their changelogs
-
-https://github.com/grafana/helm-chart-toolbox/pull/146
 
 ---
 
@@ -52,7 +48,7 @@ https://github.com/grafana/helm-chart-toolbox/pull/146
 
 The portfolio shows a deliberate progression: starting from traditional PaaS, advancing to cloud-agnostic serverless, adding Terraform-managed infrastructure, and extending into container orchestration with Kubernetes.
 
-**Next milestone (v3.1):** Terraform-managed AWS EKS, ECR, GitHub OIDC and Helm-based deployment path.
+**Next milestone (v4):** Bare-metal / Vanilla Kubernetes cluster on Ubuntu 22.04 baseline.
 
 ---
 
@@ -142,7 +138,7 @@ Docker • FastAPI • kind • Kustomize • Helm • Ingress • HPA • Netwo
 GitHub Actions + OIDC • Trivy scanning • Smoke testing • Helm validation
 
 **Security & Observability**  
-Least-privilege • Non-root containers • Prometheus-compatible metrics • Structured logging
+Least-privilege • Non-root containers • OpenTelemetry (OTLP, Collector) • Prometheus metrics • Structured logging
 
 **Architecture**  
 Hexagonal design • Cloud-agnostic core
@@ -160,7 +156,7 @@ Hexagonal design • Cloud-agnostic core
 
 **Open to Cloud, DevOps, Platform Engineering and Infrastructure as Code roles** in Hungary, the EU and remote international teams.
 
-📩 **[ervin.wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build reliable, secure and reproducible cloud systems together!
+📩 **[ervin dot wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build reliable, secure and reproducible cloud systems together!
 
 ---
 *20 years in high-stakes logistics → reliability-first approach to cloud infrastructure.*
