@@ -1,6 +1,6 @@
 # Ervin Wallin
 
-**Platform Engineer | OpenTelemetry Community Member (CNCF)**  
+**Platform Engineer | OpenTelemetry Community Member**
 [LinkedIn](https://linkedin.com/in/ervin-wallin) | [GitHub](https://github.com/szelese)
 
 ---
@@ -26,6 +26,10 @@
 **[PR #2418](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2418)** (merged) – Removed redundant schema requirements in `opentelemetry-operator` chart
 - Cleaned up duplicated and overly restrictive constraints in `values.schema.json` to allow flexible custom configurations
 
+**[PR #2447](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2447)** (merged) – Removed default collector resources and added warnings in `opentelemetry-kube-stack` chart
+- Removed default resource requests and limits from `defaultCRConfig` and `collectors.daemon`
+- Added a Helm `NOTES.txt` warning when collector resources are unset
+
 ### Grafana Helm Chart Toolbox
 **[PR #146](https://github.com/grafana/helm-chart-toolbox/pull/146)** (merged) – Added values.yaml validation before running documentation and schema generators
 - Added regression tests for both `--file` and `--chart` modes
@@ -35,7 +39,7 @@
 
 ## Cloud Architecture Evolution
 
-**From PaaS → Serverless → Infrastructure as Code → Kubernetes-native delivery**
+**From PaaS → Serverless → Infrastructure as Code → Kubernetes-native → Vanilla Bare-Metal**
 
 2025–2026 | Cloud portfolio evolution
 
@@ -45,14 +49,28 @@
 | **v2** | Cloud-agnostic Serverless Core | Lambda, Docker, Hexagonal | Documented median latency reduction (~120 ms → 44 ms); ZAP scan with 0 alerts in the recorded scenario |
 | **v2.1** | Terraform IaC Layer | Terraform, GitHub OIDC | Repeatable AWS provisioning and automated application deployment |
 | **v3** | **Kubernetes-native Runtime** | FastAPI, Docker, kind, Helm, Kustomize | kind-based Kubernetes baseline reproduced on AWS EC2, Ingress, HPA, NetworkPolicy, runtime hardening, CI |
+| **v4** | **Vanilla Kubernetes on Bare-Metal & VMs** | containerd 2.x, systemd, CNI, mTLS, CoreDNS, ShellCheck | Automated bootstrap of Kubernetes v1.36.5 from raw binaries across 6 verified OS/arch combinations (Ubuntu 22.04/24.04/26.04, amd64/arm64); static mTLS PKI, modular pipeline, and validation smoke tests |
 
-The portfolio shows a deliberate progression: starting from traditional PaaS, advancing to cloud-agnostic serverless, adding Terraform-managed infrastructure, and extending into container orchestration with Kubernetes.
-
-**Next milestone (v4):** Bare-metal / Vanilla Kubernetes cluster on Ubuntu 22.04 baseline.
+**Next milestone (v4.1):** Observability stack (OpenTelemetry + Prometheus + Grafana) on top of v4
 
 ---
 
 ## Highlighted Projects
+
+### v4 – Vanilla Kubernetes on Bare-Metal and VMs
+
+[github.com/szelese/v4-vanilla-k8s](https://github.com/szelese/v4-vanilla-k8s)
+
+A modular bare-metal Kubernetes bootstrap engine and reference architecture built directly on raw systemd units and upstream binaries.
+
+Key features:
+
+- Single-node, multi-architecture & multi-OS support verified across 6 targets (Ubuntu 22.04 / 24.04 / 26.04 × amd64 / arm64)
+- Automated deployment of Kubernetes v1.36.5, etcd v3.5.34, and containerd 2.x
+- Static X.509 mTLS PKI generation with OpenSSL (dedicated CA, Front-Proxy CA, API server SANs, and embedded kubeconfigs)
+- Pure native systemd service integration for all control-plane and worker components
+- Local bridge CNI networking (`10.244.0.0/24`) and CoreDNS v1.14.7 deployment
+- Automated smoke tests covering (`07-smoke-test.sh`): Pod scheduling, apiserver-to-kubelet exec/logs, ClusterIP routing, and hairpin connectivity
 
 ### v3 – Kubernetes-Native Core
 
@@ -132,10 +150,10 @@ Key features:
 AWS (Lambda, ECR, IAM, CloudWatch, Elastic Beanstalk) • Terraform IaC
 
 **Kubernetes & Containers**  
-Docker • FastAPI • kind • Kustomize • Helm • Ingress • HPA • NetworkPolicy • Security contexts
+Docker • FastAPI • kind • Kustomize • Helm • Ingress • HPA • NetworkPolicy • Security contexts • Vanilla / bare-metal Kubernetes
 
 **CI/CD & Automation**  
-GitHub Actions + OIDC • Trivy scanning • Smoke testing • Helm validation
+GitHub Actions + OIDC • Trivy scanning • Smoke testing • Helm validation • ShellCheck
 
 **Security & Observability**  
 Least-privilege • Non-root containers • OpenTelemetry (OTLP, Collector) • Prometheus metrics • Structured logging
@@ -156,10 +174,9 @@ Hexagonal design • Cloud-agnostic core
 
 **Open to Cloud, DevOps, Platform Engineering and Infrastructure as Code roles** in Hungary, the EU and remote international teams.
 
-📩 **[ervin dot wallin at gmail dot com](mailto:ervin.wallin@gmail.com)** | Let's build reliable, secure and reproducible cloud systems together!
-
+📩 **[ervin.wallin@gmail.com](mailto:ervin.wallin@gmail.com)** | Let's build reliable, secure and reproducible cloud systems together!
 ---
-*20 years in high-stakes logistics → reliability-first approach to cloud infrastructure.*
+*20 years in high-stakes logistics → reliability-first approach to platform engineering.*
 
 ![Profile views](https://komarev.com/ghpvc/?username=szelese&color=0e75b6&style=flat-square&label=Profile+views)  
 © 2026 Ervin Wallin
